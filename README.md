@@ -61,6 +61,21 @@ npm start
 Add it to a phone's home screen and it opens full-screen, which is how it is
 meant to be used — a few taps, several times a day.
 
+## On a phone
+
+This is built to be used one-handed, several times a day, so the mobile side is
+part of the design rather than a resize:
+
+- Every control is at least 44px tall, including the quick-add buttons.
+- Inputs are 16px, which is what stops iOS zooming the page in when one takes
+  focus, and each one asks for the right keyboard.
+- Controls carry an `:active` state, not only `:hover`. Tailwind gates hover
+  behind a device that can hover and the base stylesheet clears the tap
+  highlight, so without it a tap would show nothing at all until the server
+  answered.
+- Added to a home screen it runs standalone, so the header and the page respect
+  the safe area rather than sliding under the status bar and home indicator.
+
 ## Accounts
 
 Everyone signs in, and nobody sees anyone else's numbers. The first account

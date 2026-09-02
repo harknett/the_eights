@@ -9,9 +9,21 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
 
   return (
     <>
-      <header className="sticky top-0 z-10 border-b border-line bg-surface/95 backdrop-blur">
+      {/*
+        Added to a home screen this runs standalone with viewportFit: cover,
+        so the header sits under the status bar and the notch unless it is told
+        about the safe area. In a browser tab these insets are zero.
+      */}
+      <header
+        className="sticky top-0 z-10 border-b border-line bg-surface/95 backdrop-blur"
+        style={{
+          paddingTop: "env(safe-area-inset-top)",
+          paddingLeft: "env(safe-area-inset-left)",
+          paddingRight: "env(safe-area-inset-right)",
+        }}
+      >
         <div className="mx-auto flex max-w-2xl items-center gap-3 px-4 py-3">
-          <Link href="/" className="flex items-baseline gap-2 font-semibold tracking-tight">
+          <Link href="/" className="flex min-h-11 items-center gap-2 font-semibold tracking-tight">
             <span className="text-xl text-accent" aria-hidden>
               8
             </span>
@@ -23,8 +35,17 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
         </div>
       </header>
 
-      {/* Bottom padding clears the fixed bar on a phone. */}
-      <main className="mx-auto w-full max-w-2xl flex-1 px-4 py-5 pb-28 md:pb-8">{children}</main>
+      {/* Clears the home indicator; there is no fixed bar to allow for. */}
+      <main
+        className="mx-auto w-full max-w-2xl flex-1 px-4 py-5"
+        style={{
+          paddingBottom: "calc(2.5rem + env(safe-area-inset-bottom))",
+          paddingLeft: "max(1rem, env(safe-area-inset-left))",
+          paddingRight: "max(1rem, env(safe-area-inset-right))",
+        }}
+      >
+        {children}
+      </main>
     </>
   );
 }

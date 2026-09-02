@@ -164,7 +164,7 @@ function ResetSubmit({ name }: { name: string }) {
     <button
       type="submit"
       disabled={pending}
-      className="text-xs text-muted underline hover:text-danger disabled:opacity-50"
+      className="inline-flex min-h-11 items-center text-xs text-muted underline hover:text-danger disabled:opacity-50"
     >
       {pending ? "Resetting…" : `Reset ${name.split(" ")[0]}'s password`}
     </button>

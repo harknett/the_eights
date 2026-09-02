@@ -28,11 +28,18 @@ export function PageHeader({
 const BUTTON_BASE =
   "inline-flex items-center justify-center gap-2 rounded-xl px-4 min-h-12 font-medium transition-colors disabled:opacity-50 disabled:pointer-events-none";
 
+/*
+  Each carries an active state as well as a hover one. Tailwind gates hover
+  behind a device that can hover, and the base stylesheet clears the tap
+  highlight, so without :active a tap on a phone would show nothing at all
+  until the server answered.
+*/
 const VARIANTS = {
-  primary: "bg-accent text-white hover:bg-accent-strong dark:text-[#14161a]",
-  secondary: "bg-surface border border-line hover:bg-surface-muted",
-  quiet: "hover:bg-surface-muted",
-  danger: "border border-danger text-danger hover:bg-danger hover:text-white",
+  primary: "bg-accent text-white hover:bg-accent-strong active:bg-accent-strong dark:text-[#14161a]",
+  secondary: "bg-surface border border-line hover:bg-surface-muted active:bg-surface-muted",
+  quiet: "hover:bg-surface-muted active:bg-surface-muted",
+  danger:
+    "border border-danger text-danger hover:bg-danger hover:text-white active:bg-danger active:text-white",
 } as const;
 
 type Variant = keyof typeof VARIANTS;

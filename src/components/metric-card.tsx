@@ -83,7 +83,7 @@ export function MetricCard({ progress, date }: { progress: Progress; date: strin
           type="button"
           onClick={() => setShowCustom((open) => !open)}
           aria-expanded={showCustom}
-          className="rounded-lg border border-line bg-surface min-h-9 px-3 text-sm text-muted hover:bg-surface-muted"
+          className="inline-flex items-center rounded-lg border border-line bg-surface min-h-11 px-3.5 text-sm text-muted hover:bg-surface-muted active:bg-surface-muted"
         >
           {showCustom ? "Close" : "Other…"}
         </button>
@@ -135,7 +135,7 @@ function PresetSubmit({ label }: { label: string }) {
     <button
       type="submit"
       disabled={pending}
-      className="tabular rounded-lg border border-accent/40 bg-accent-soft text-accent min-h-9 px-3 text-sm font-medium transition-colors hover:bg-accent hover:text-white disabled:opacity-50 dark:hover:text-[#14161a]"
+      className="tabular inline-flex items-center rounded-lg border border-accent/40 bg-accent-soft text-accent min-h-11 px-3.5 text-sm font-medium transition-colors hover:bg-accent hover:text-white active:bg-accent active:text-white disabled:opacity-50 dark:hover:text-[#14161a] dark:active:text-[#14161a]"
     >
       {label}
     </button>

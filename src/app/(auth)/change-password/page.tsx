@@ -19,7 +19,7 @@ export default async function ChangePasswordPage() {
       </p>
       <ChoosePasswordForm />
       <form action={signOut} className="text-center">
-        <button type="submit" className="text-xs text-muted underline">
+        <button type="submit" className="inline-flex min-h-11 items-center text-xs text-muted underline">
           Sign out instead
         </button>
       </form>

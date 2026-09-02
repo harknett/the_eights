@@ -64,12 +64,16 @@ export default async function TodayPage({
           ) : null}
         </div>
 
-        <nav className="mt-3 flex items-center justify-between text-sm">
-          <Link href={`/?date=${addDays(date, -1)}`} className="text-accent underline">
+        {/* Negative margin keeps the taller tap targets from adding bulk. */}
+        <nav className="-mb-2 mt-1 flex items-center justify-between text-sm">
+          <Link
+            href={`/?date=${addDays(date, -1)}`}
+            className="inline-flex min-h-11 items-center text-accent underline"
+          >
             ← {relativeDate(addDays(date, -1), now)}
           </Link>
           {!isToday ? (
-            <Link href="/" className="text-accent underline">
+            <Link href="/" className="inline-flex min-h-11 items-center text-accent underline">
               Back to today
             </Link>
           ) : (

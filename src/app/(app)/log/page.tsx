@@ -52,7 +52,7 @@ export default async function LogPage() {
                       <button
                         type="submit"
                         aria-label={`Remove ${metric?.label ?? "entry"} on ${entry.date}`}
-                        className="rounded-lg px-2 py-1.5 text-sm text-muted hover:bg-surface-muted hover:text-danger"
+                        className="inline-flex min-h-11 items-center rounded-lg px-3 text-sm text-muted hover:bg-surface-muted hover:text-danger active:bg-surface-muted active:text-danger"
                       >
                         Remove
                       </button>

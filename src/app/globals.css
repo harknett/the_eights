@@ -1,26 +1,76 @@
 @import "tailwindcss";
 
+/*
+  Calm and legible. This gets opened many times a day, often one-handed and
+  often last thing at night, so the palette stays quiet and the type large.
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --background: #f7f7f5;
+  --surface: #ffffff;
+  --surface-muted: #eeeeea;
+  --foreground: #191b17;
+  --muted: #64695f;
+  --border: #dededa;
+  --accent: #2f6f5e;
+  --accent-strong: #245a4c;
+  --accent-soft: #e3f0eb;
+  --done: #2f6f5e;
+  --danger: #b0402f;
+  --track: #e2e2dd;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #14161a;
+    --surface: #1c1f24;
+    --surface-muted: #24282e;
+    --foreground: #edefea;
+    --muted: #9aa196;
+    --border: #333840;
+    --accent: #6fc2aa;
+    --accent-strong: #8ad4be;
+    --accent-soft: #1d2f2b;
+    --done: #6fc2aa;
+    --danger: #f08b7a;
+    --track: #2c313a;
   }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-line: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-done: var(--done);
+  --color-danger: var(--danger);
+  --color-track: var(--track);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Stop iOS zooming when a numeric field takes focus. */
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+
+@utility card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
 }
